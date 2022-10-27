@@ -1,0 +1,344 @@
+package com.example.jsonparcing;
+
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Requestpayload {
+	private Payload payload;
+
+	public Payload getPayload() {
+		return payload;
+	}
+
+	public void setPayload(Payload payload) {
+		this.payload = payload;
+	}
+
+}
+
+class Address {
+	public String houseNumber;
+	public String streetName;
+	public String streetSuffix;
+	public String city;
+	public String zip;
+	public String state;
+	public String stateOrProvinceCd;
+}
+
+class AddressDto {
+	public String houseNumber;
+	public String streetDirection;
+	public String streetName;
+	public String streetSuffix;
+	public String unitNbr;
+	public String stateCd;
+	public String zip;
+	public String buildingNbr;
+	public String stateOrProvinceCd;
+	public String city;
+}
+
+class Apfl {
+	public ArrayList<DiscoveredDriverSubject> discoveredDriverSubject;
+	public ArrayList<DiscoveredVehicle> discoveredVehicle;
+	public ArrayList<PriorPolicy> priorPolicy;
+}
+
+class AutoCoverage {
+	public Vehicle vehicle;
+	public ArrayList<String> coverages;
+	public Limits limits;
+}
+
+class BirthDate {
+	public String year;
+	public String month;
+	public String day;
+}
+
+class Credit {
+	public String hhCreditInd;
+	public String indivCreditInd;
+	public String polOfsWtnInd;
+	public String indivOfsWtnInd;
+	public String algorithmCode;
+	public Personal personal;
+	@JsonProperty("address Dto")
+	public AddressDto addressDto;
+	public ArrayList<ScoreList> scoreList;
+	public String indivNhCd;
+	public String policyNhCd;
+	public String hhMortgage;
+	public String mortgageInd;
+	public String mortgageBalance;
+	public String reportDate;
+	public String mortgageExpYear;
+	public String vendorSourceCd;
+	public IsCredit isCredit;
+}
+
+class DiscoveredDriverSubject {
+	public int unitNumber;
+	public String subjectCategoryCode;
+	public String classification;
+	public Person person;
+	public BirthDate birthDate;
+	public String driversLicenseNumber;
+	public String driversLicenseState;
+}
+
+class DiscoveredVehicle {
+	public int unitNumber;
+	public int groupSequenceNumber;
+	public Vehicle vehicle;
+}
+
+class Factor {	
+	public int rank;
+	public String code;
+
+}
+
+class Header {
+	public String companyCode;
+	public String lineCode;
+	public String stateOrProvinceCd;
+	public String alaCarte;
+	public String algorithmType;
+}
+
+class InceptionDate {
+	public String year;
+	public String month;
+	public String day;
+}
+
+class Individual {
+	public String individualNumber;
+	public String ssn;
+	public String firstName;
+	public String lastName;
+	public String middleName;
+	public String nameSuffix;
+	public String genderCd;
+	public String dob;
+	public String licenseNbr;
+	public String licenseStateCd;
+	public String phoneNumber;
+	public String priorPolicyNumber;
+	public String priorInsCompany;
+	public Mvr mvr;
+	public Credit credit;
+}
+
+class IsCredit {
+	public String lineCd;
+	public String companyCd;
+	public String controlDt;
+	public String indiviScore;
+	public String indivFcraInd;
+	public String indivGrp;
+	@JsonProperty("IndivNhCd")
+	public String indivNhCd;
+	@JsonProperty("indivIfsWtnInd ")
+	public String indivIfsWtnInd;
+	public String policyGrp;
+	public String policyScore;
+	public String policyNhCd;
+	public String policyFcraInd;
+	public String policyFcraReason;
+	public String polIfsWtnInd;
+	public String indCombGrp;
+	public String polCombGrp;
+	public String algoVersionDt;
+	public String creditType;
+}
+
+class Limits {
+	@JsonProperty("occurLimit ")
+	public String occurLimit;
+}
+
+class Mvr {
+	public MvrHeader mvrHeader;
+}
+
+class MvrHeader {
+	public String mvrStatusCd;
+	public String driverName;
+	public String genderCd;
+	public String birthDt;
+	public String licenseNbr;
+	public String licenseStateCd;
+	public String licenseClass;
+	public String licenseClassCd;
+	public String issuedDt;
+	public String expirationDt;
+	public String stateStatusDesc;
+	public String licenseStatus;
+	public String licenseStatusCd;
+	public ArrayList<String> licenseRestrictions;
+	public String streetAddressLine1;
+	public String streetAddressLine2;
+	public String streetAddressLine3;
+	public String ssn;
+	public String scRecoupment;
+	public String mvrTypeInd;
+	public ArrayList<String> mvrDescriptions;
+	public String vendorSourceCode;
+}
+
+class Payload {
+	public ProjectInfo projectInfo;
+	public ArrayList<TestCase> testCases;
+}
+
+class Person {
+	public String gender;
+	public String ssn;
+	public String firstNm;
+	public String middleNm;
+	public String lastName;
+}
+
+class Personal {
+	public String lastName;
+	public String firstNm;
+	public String middleNm;
+	public String nameSuffix;
+	public String ssn;
+	public String dob;
+	public String estAge;
+}
+
+class Policy {
+	public String policyNumber;
+	public String policyType;
+	public String policyStatus;
+	public String carrierName;
+	public String ambestNumber;
+	public InceptionDate inceptionDate;
+}
+
+class PolicyFromDate {
+	public String year;
+	public String month;
+	public String day;
+}
+
+class PolicyHolder {
+	@JsonProperty("subject UnitNumber")
+	public String subjectUnitNumber;
+	public String policyNumber;
+	public PolicyHolderName policyHolderName;
+	public String primaryHolderRelationship;
+	public PolicyFromDate policyFromDate;
+	public PolicyToDate policyToDate;
+}
+
+class PolicyHolderName {
+	public String firstName;
+	@JsonProperty("middleName ")
+	public String middleName;
+	public String lastName;
+}
+
+class PolicyToDate {
+	@JsonProperty("year ")
+	public String year;
+	public String month;
+	public String day;
+}
+
+class PriorPolicy {
+	public String unitNumber;
+	public Policy policy;
+	public ArrayList<PolicyHolder> policyHolder;
+	public ArrayList<AutoCoverage> autoCoverages;
+}
+
+class ProjectInfo {
+	public String projectNumber;
+	public String projectName;
+	public String clientName;
+	public String clientPhone;
+}
+
+class Reading {
+	public String readingMileage;
+	public String readingDt;
+}
+
+class Root {
+	public Payload payload;
+}
+
+class ScoreList {
+	public String score;
+	public String algorithmId;
+	public String scoreIndFlag;
+	public String noHitCd;
+	public String fcraInd;
+	public ArrayList<String> factors;
+}
+
+class TestCase {
+	public String controlNumber;
+	public Header header;
+	public TestCaseData testCaseData;
+}
+
+class TestCaseData {
+	public ArrayList<Address> address;
+	public ArrayList<Individual> individuals;
+	@JsonProperty("apfl ")
+	public Apfl apfl;
+	public Vhs vhs;
+	public Vmil vmil;
+}
+
+class Vehicle {
+	public String vehicleCategoryCode;
+	public String classification;
+	public String vehicleType;
+	public int year;
+	public String make;
+	public String model;
+	public String vin;
+}
+
+class VehicleInfo {
+	public String vin;
+	public int year;
+	public String make;
+	public String model;
+}
+
+class Vehicles {
+	public VehicleInfo vehicleInfo;
+	public int score;
+	public boolean deregatoryAlert;
+	public ArrayList<Factor> factors;
+}
+
+class Vhs {
+	public Vehicles vehicles;
+}
+
+class Vmil {
+	public String vehileIDNbr;
+	public int estAnnualMileage;
+	public int avgAnnualMileage;
+	public int modeledAnnualMileage;
+	public int calYearlyMileage;
+	public int nohitReasonCd;
+	public String policyVehPropId;
+	public int mileageCalSrcCd;
+	public int recentAnnMileage;
+	public int lastODOMRdMileage;
+	public String lastODOMRdDt;
+	public String estimatedCurrentOdometerRd;
+	public ArrayList<Reading> reading;
+}
