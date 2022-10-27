@@ -1,0 +1,36 @@
+package com.example.jsonparcing;
+
+public class Employee { public String empId;
+public String name;
+public String cmpname;
+public Employee(String empId, String name, String cmpname) {
+	super();
+	this.empId = empId;
+	this.name = name;
+	this.cmpname = cmpname;
+}
+public Employee() {
+	// TODO Auto-generated constructor stub
+}
+public String getEmpId() {
+	return empId;
+}
+public void setEmpId(String empId) {
+	this.empId = empId;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getCmpname() {
+	return cmpname;
+}
+public void setCmpname(String cmpname) {
+	this.cmpname = cmpname;
+}
+
+
+
+}
